@@ -244,12 +244,4 @@ export default class EmbellishedElement {
     this.element.value = value;
     return this;
   }
-
-  /*
-   **************************************************
-   * Render
-   **************************************************
-   */
-  // render(parent)
-
 }

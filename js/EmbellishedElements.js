@@ -257,12 +257,23 @@ export default class EmbellishedElements {
     return EmbellishedElementHelper.embellishElements(filtered);
   }
 
-  render(parent = document) {
-    for (let element of this.elements) {
+  /*
+   **************************************************
+   * AJAX calls
+   **************************************************
+   */
+  fetch(url, success = required(), error = required(), expectJson = false) {
+    fetch(url)
+    .then(response => ( expectJson ? response.json() : response.text() ))
+    .then(data => ( success(data) ))
+    .catch(e => ( error(e) ))
+  }
 
+  get(url = required(), success = required(), error = required(), expectJson = false) {
+    return this.fetch(url, success, error, expectJson);
+  }
 
-
-      parent.body.appendChild(element.get());
-    }
+  getJson(url = required(), success = required(), error = required()) {
+    return this.fetch(url, success, error, true);
   }
 }
