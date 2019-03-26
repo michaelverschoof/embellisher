@@ -265,8 +265,8 @@ export default class EmbellishedElements {
   fetch(url, success = required(), error = required(), expectJson = false) {
     fetch(url)
     .then(response => ( expectJson ? response.json() : response.text() ))
-    .then(data => ( success(data) ))
-    .catch(e => ( error(e) ))
+    .then(data => success(data))
+    .catch(e => error(e));
   }
 
   get(url = required(), success = required(), error = required(), expectJson = false) {
@@ -275,5 +275,16 @@ export default class EmbellishedElements {
 
   getJson(url = required(), success = required(), error = required()) {
     return this.fetch(url, success, error, true);
+  }
+
+  post(url = required(), data = required(), success = required(), error = required()) {
+    fetch(url, {
+      method: 'POST',
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => success(data))
+    .catch(e => error(e));
   }
 }
