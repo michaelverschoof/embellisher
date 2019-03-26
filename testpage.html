@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="language" content="nl">
+    <meta http-equiv="Content-Language" content="nl">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Title</title>
+
+    <script type="module" src="js/directives.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/project.css" />
+</head>
+<body>
+    <main>
+        <form embellished>
+            <fieldset>
+                <input type="text" />
+                <label embellished-label>Some label</label>
+                <label embellished-error-text>Error text</label>
+                <label embellished-helper-text>Helper text</label>
+            </fieldset>
+            <br />
+            <br />
+            <fieldset>
+                <input class="filled" type="text" />
+                <label embellished-label>Some label</label>
+                <label embellished-error-text>Error text</label>
+                <label embellished-helper-text>Helper text</label>
+            </fieldset>
+            <br />
+            <br />
+            <fieldset>
+                <input class="outlined" type="text" />
+                <label embellished-label>Some label</label>
+                <label embellished-error-text>Error text</label>
+                <label embellished-helper-text>Helper text</label>
+            </fieldset>
+            <br />
+            <br />
+            <h3 embellisher-bound="test">Some initial value</h3>
+            <fieldset>
+                <input embellisher-model="test" class="outlined" type="text" value="some value" />
+                <label embellished-label>Bound input field</label>
+                <label embellished-helper-text>Edit the value to change the heading</label>
+            </fieldset>
+            <fieldset>
+                <button>
+                    Button
+                </button>
+                &nbsp;&nbsp;
+                <button class="outlined">
+                    Outlined
+                </button>
+                &nbsp;&nbsp;
+                <button class="filled">
+                    Filled
+                </button>
+            </fieldset>
+
+            <button class="floating" onclick="embellishedModal()">
+                <label class="icon">&male;</label>
+            </button>
+        </form>
+
+    </main>
+</body>
+</html>

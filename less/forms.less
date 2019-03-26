@@ -1,0 +1,145 @@
+@import "variables.less";
+
+
+@field-colour-dark-grey: #494c50;
+@field-colour-light-grey: #bbbcbc;
+@field-colour-lighter-grey: #e4e3e4;
+
+@field-colour-focus: #6d00f0;
+@field-colour-error: #b90224;
+
+@field-border-radius: 4px;
+
+@button-colour-hover: #e4e3e4;
+@button-colour-focus: #dad1e9;
+@button-filled-colour-hover: #7816f0;
+@button-filled-colour-focus: #9146f4;
+
+
+
+[embellished] form,
+.embellished form,
+form[embellished],
+form.embellished {
+    margin: 0;
+    padding: 0;
+
+    fieldset {
+        border: none;
+        display: block;
+        margin: 16px 0 0 0;
+        padding: 0;
+        position: relative;
+    }
+
+    input {
+        border: 0 solid @field-colour-dark-grey;
+        border-bottom-width: 1px;
+        box-shadow: none;
+        display: block;
+        font-size: @font-size;
+        line-height: 20px;
+        margin: 0;
+        outline: none;
+        padding: 23px 0 8px 0;
+        width: 100%;
+        transition: box-shadow .3s, border-color .3s;
+
+        ~ label[embellished-label] {
+            color: @grey-medium;
+            display: block;
+            font-size: 1em;
+            left: 1px;
+            line-height: initial;
+            overflow: hidden;
+            pointer-events: none;
+            position: absolute;
+            text-align: left;
+            top: 18px;
+            transition-property: top, font-size, background-color;
+            transition-duration: .2s;
+            transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+            white-space: nowrap;
+        }
+
+        &:focus, &.emb-has-value, &.emb-has-error {
+            ~ label[embellished-label] {
+                font-size: .75em;
+                top: 4px;
+                visibility: visible;
+            }
+        }
+
+        &:focus {
+            border-color: @primary-colour;
+            box-shadow: inset 0 -1px 0 0 @primary-colour;
+
+            ~ label[embellished-label] {
+                color: @primary-colour;
+            }
+        }
+
+        &.filled, &.outlined {
+            padding-left: 12px;
+            padding-right: 12px;
+
+            ~ label {
+                margin: 0 0 0 8px;
+                padding: 0 4px;
+            }
+        }
+
+        &.filled {
+            background-color: @field-colour-lighter-grey;
+            border-top-right-radius: @field-border-radius;
+            border-top-left-radius: @field-border-radius;
+        }
+
+        &.outlined {
+            border-radius: @field-border-radius;
+            border-width: 1px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+
+            &:focus, &.emb-has-value, &.emb-has-error {
+                ~ label[embellished-label] {
+                    background: #ffffff;
+                    top: -6px;
+                }
+            }
+
+            &:focus { box-shadow: inset 0 0 0 1px @primary-colour; }
+        }
+
+        &.emb-has-error {
+            border-color: @field-colour-error;
+
+            &:not(.outlined) { box-shadow: inset 0 -1px 0 0 @field-colour-error; }
+            &.outlined { box-shadow: inset 0 0 0 1px @field-colour-error; }
+
+            ~ label[embellished-label], ~ label[embellished-error-text] { color: @field-colour-error !important; }
+
+            ~ label[embellished-error-text] { display: inline-block; }
+
+            ~ label[embellished-helper-text] { display: none; }
+        }
+    }
+
+    label {
+        display: block;
+        font-size: .75rem;
+        line-height: 1.5rem;
+        color: @grey-medium;
+
+        ::first-letter { text-transform: uppercase; }
+
+        &[embellished-error-text] {
+            color: @field-colour-error;
+            display: none;
+        }
+
+        &[embellished-helper-text] {
+            color: @grey-light;
+        }
+    }
+}
