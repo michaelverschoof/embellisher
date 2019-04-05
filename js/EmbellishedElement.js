@@ -11,7 +11,9 @@ export default class EmbellishedElement {
 
   constructor(element = required()) {
     if (element instanceof EmbellishedElement) { return element; }
-    if (!(element instanceof HTMLElement)) { throw new EmbellishedError('EmbellishedElements: Tried to create an Embellished Element from a non-element.'); }
+    if (!(element instanceof HTMLElement) && !(element instanceof Element)) {
+      throw new EmbellishedError('EmbellishedElements: Tried to create an Embellished Element from a non-element.');
+    }
 
     this.element = element;
     return this;
@@ -46,7 +48,7 @@ export default class EmbellishedElement {
   }
 
   prepend(html = required()) {
-    if (html instanceof EmbellishedElements) { for (let element of html) { this.element.insertBefore(element.get(), this.element.firstChild); } return this; }
+    if (html instanceof EmbellishedElements) { for (let element of html.get()) { this.element.insertBefore(element.get(), this.element.firstChild); } return this; }
 
     let element = html;
     if (html instanceof EmbellishedElement) { element = html.get(); }

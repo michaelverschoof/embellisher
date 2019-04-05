@@ -9,6 +9,7 @@ export function emb(selector = required()) {
   if (selector instanceof NodeList) { return new EmbellishedElements(Array.from(selector)); }
   if (selector instanceof EmbellishedElement) { return new EmbellishedElements(Array.of(selector)) }
   if (selector instanceof HTMLElement) { return new EmbellishedElements(Array.of(selector)); }
+  if (selector instanceof Element) { return new EmbellishedElements(Array.of(selector)); }
 
   if (typeof selector !== 'string') { throw new Error('Selector "' + selector + '" cannot be parsed'); }
 
@@ -27,6 +28,7 @@ export default class EmbellishedElements {
     if (elements instanceof EmbellishedElements) { return elements; }
     if (elements instanceof EmbellishedElement) { this.elements.push(elements); return this; }
     if (elements instanceof HTMLElement) { this.elements.push(new EmbellishedElement(elements)); return this; }
+    if (elements instanceof Element) { this.elements.push(new EmbellishedElement(elements)); return this; }
     if (!Array.isArray(elements)) { throw new EmbellishedError('EmbellishedElements: Tried to create an Embellished Elements from a non-array.'); }
 
     for (let element of elements) { this.elements.push(element instanceof EmbellishedElement ? element : new EmbellishedElement(element)); }
@@ -269,11 +271,7 @@ export default class EmbellishedElements {
     .catch(e => error(e));
   }
 
-  get(url = required(), success = required(), error = required(), expectJson = false) {
-    return this.fetch(url, success, error, expectJson);
-  }
-
-  getJson(url = required(), success = required(), error = required()) {
+  fetchJson(url = required(), success = required(), error = required()) {
     return this.fetch(url, success, error, true);
   }
 

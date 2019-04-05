@@ -15,6 +15,16 @@ export default class EmbellishedElementHelper {
     return document.createElement(node);
   }
 
+  static createSVG(image = required()) {
+    let use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+    use.setAttributeNS('http://www.w3.org/1999/xlink', 'href', image);
+
+    let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.appendChild(use);
+
+    return svg;
+  }
+
   static embellishElements(elements) {
     let embellishedElements = [];
     for (let element of elements) { embellishedElements.push(new EmbellishedElement(element)); }

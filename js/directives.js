@@ -1,6 +1,7 @@
 import { emb } from './EmbellishedElements.js';
+import EmbellishedElementHelper from './EmbellishedElementHelper.js';
 
-window.EmbellishedController = (function() {
+window.Embellisher = (function() {
   'use strict';
 
   const MODEL_NAME = 'embellisher-model';
@@ -16,12 +17,15 @@ window.EmbellishedController = (function() {
   return {
 
     init: function () {
+      this.bind();
+    },
+
+    bind: function() {
       let _this = this;
 
       modelElements.each(function(element) {
         let modelName = element.attr(MODEL_NAME);
-
-        element.on('keyup', () => { bindings[modelName] = element.val(); });
+        element.on('keyup', () => ( bindings[modelName] = element.val() ));
 
         _this.watch(modelName);
       });
@@ -36,19 +40,49 @@ window.EmbellishedController = (function() {
             value = (newValue !== null ? newValue : '');
 
             modelElements
-            .filter(element => element.attr(MODEL_NAME) === modelName && element.get().type)
+            .filter(element => ( element.attr(MODEL_NAME) === modelName && element.get().type ))
             .val(value);
 
             boundElements
-            .filter(element => element.attr(BOUND_NAME) === modelName && !element.get().type)
+            .filter(element => ( element.attr(BOUND_NAME) === modelName && !element.get().type ))
             .html(value);
           },
 
-          get: () => { return value; },
+          get: () => { return value },
 
           enumerable: true
         });
       }
+    }
+  }
+})();
+
+window.IconEmbellisher = (function() {
+  'use strict';
+
+  return {
+    iconElements: [],
+
+    init: function() {
+      this.iconElements = emb('[embellished-icon]');
+
+      this.embellishNavigation();
+    },
+
+    embellishNavigation() {
+      this.iconElements.hasClass('menu').prepend(this.getImageElement('img/icons/menu.svg#icon'));
+      this.iconElements.hasClass('share').prepend(this.getImageElement('img/icons/share.svg#icon'));
+      this.iconElements.hasClass('search').prepend(this.getImageElement('img/icons/search.svg#icon'));
+      this.iconElements.hasClass('add').prepend(this.getImageElement('img/icons/add.svg#icon'));
+      this.iconElements.hasClass('clear').prepend(this.getImageElement('img/icons/clear.svg#icon'));
+      this.iconElements.hasClass('more').prepend(this.getImageElement('img/icons/more.svg#icon'));
+    },
+
+    getImageElement: function(image) {
+      return emb(EmbellishedElementHelper.createSVG(image))
+      .attr('viewBox', '0 0 24 24')
+      .attr('width', '24')
+      .attr('height', '24');
     }
   }
 })();
@@ -60,13 +94,10 @@ window.FormEmbellisher = (function() {
   const VALUE_CLASS = 'emb-has-value';
 
   return {
-    formElements: null,
+    formElements: [],
 
     init: function() {
-      this.formElements = emb('[embellished] form,'
-        + '.embellished form,'
-        + 'form[embellished],'
-        + 'form.embellished');
+      this.formElements = emb('[embellished] form, form[embellished]');
 
       this.addInitialFieldStates();
       this.addListeners();
@@ -116,6 +147,7 @@ window.FormEmbellisher = (function() {
 })();
 
 document.addEventListener("DOMContentLoaded", function(event) {
-  EmbellishedController.init();
+  Embellisher.init();
+  IconEmbellisher.init();
   FormEmbellisher.init();
 });

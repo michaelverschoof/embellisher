@@ -1,0 +1,33 @@
+@import "variables.less";
+
+@nav-colour-hover: #7816f0;
+@nav-colour-focus: #9146f4;
+
+[embellished] nav,
+nav[embellished] {
+    background-color: @primary-colour;
+    color: @white;
+    display: flex;
+    padding: 16px;
+    width: 100%;
+
+    .icon {
+        flex-grow: 0;
+        margin-right: 16px;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .title, h1, h2, h3, h4, h5, h6 {
+        font-weight: 100;
+        flex-grow: 1;
+        font-size: 24px;
+        line-height: 24px;
+    }
+}
