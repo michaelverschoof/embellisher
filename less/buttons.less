@@ -8,88 +8,89 @@
 @button-filled-colour-hover: #7816f0;
 @button-filled-colour-focus: #9146f4;
 
+[embellished] {
 
-a.button, button {
-    background: none;
-    border: 1px solid transparent;
-    border-radius: @field-border-radius;
-    color: @primary-colour;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 16px;
-    line-height: 20px;
-    outline: none;
-    overflow: hidden;
-    padding: .5em;
-    position: relative;
-    text-transform: uppercase;
-    transition: background .3s;
-    user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;
-
-    &:hover {
+    a.button, button {
+        background: none;
+        border: 1px solid transparent;
+        border-radius: @field-border-radius;
+        color: @primary-colour;
         cursor: pointer;
-
-        &:not(.filled):not(.floating) { background-color: @button-colour-hover; }
-        &.filled, &.floating { background-color: @button-filled-colour-hover; }
-
-        > label {
-            cursor: pointer;
-        }
-    }
-
-    &:focus {
-        &:not(.filled):not(.floating) { background-color: @button-colour-focus; }
-        &.filled, &.floating { background-color: @button-filled-colour-focus; }
-    }
-
-    &.dense {
-
-    }
-
-    &.floating {
-        background-color: @primary-colour;
-        border-radius: 50%;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-        color: @white;
+        display: inline-block;
         font-size: 16px;
-        padding: 16px;
-        position: absolute;
-        right: 16px;
-        bottom: 16px;
-        z-index: 99;
+        line-height: 20px;
+        outline: none;
+        overflow: hidden;
+        padding: .5em;
+        position: relative;
+        text-transform: uppercase;
+        transition: background .3s;
+        user-select: none;
+        vertical-align: middle;
+        white-space: nowrap;
 
-        &.mini {
-            padding: 8px;
-        }
+        &:hover {
+            cursor: pointer;
 
-        > label {
-            color: @white;
-            display: inline-block;
-            font-size: 22px;
-            height: 24px;
-            line-height: 24px;
+            &:not(.filled):not(.floating) {
+                background-color: @button-colour-hover;
+            }
 
-            &.icon {
-                width: 24px;
+            &.filled, &.floating {
+                background-color: @button-filled-colour-hover;
+            }
+
+            > label {
+                cursor: pointer;
             }
         }
-    }
 
-    &.filled, &.outlined {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
+        &:focus {
+            &:not(.filled):not(.floating) {
+                background-color: @button-colour-focus;
+            }
 
-    &.filled {
-        background-color: @primary-colour;
-        border-color: @primary-colour;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24);
-        color: @white;
-    }
+            &.filled, &.floating {
+                background-color: @button-filled-colour-focus;
+            }
+        }
 
-    &.outlined {
-        border-color: @field-colour-light-grey;
+        &.dense {
+            padding-bottom: 4px;
+            padding-top: 4px;
+        }
+
+        &.floating {
+            background-color: @primary-colour;
+            border-radius: 50%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            color: @white;
+            font-size: 16px;
+            padding: 16px;
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+            z-index: 99;
+
+            &.mini {
+                padding: 8px;
+            }
+        }
+
+        &.filled, &.outlined {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        &.filled {
+            background-color: @primary-colour;
+            border-color: @primary-colour;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+            color: @white;
+        }
+
+        &.outlined {
+            border-color: @field-colour-light-grey;
+        }
     }
 }
