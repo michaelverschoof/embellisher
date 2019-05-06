@@ -138,7 +138,7 @@ export default class EmbellishedElements {
    */
   children(selector) {
     let children = [];
-    for (let element of this.elements) { children = children.concat(element.children(selector)); }
+    for (let element of this.elements) { if (element.children(selector) !== null) {children = children.concat(element.children(selector));} }
     return EmbellishedElementHelper.embellishElements(children);
   }
 

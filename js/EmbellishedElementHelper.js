@@ -26,6 +26,7 @@ export default class EmbellishedElementHelper {
   }
 
   static embellishElements(elements) {
+    if (elements === null) { return null }
     let embellishedElements = [];
     for (let element of elements) { embellishedElements.push(new EmbellishedElement(element)); }
     return new EmbellishedElements(embellishedElements);

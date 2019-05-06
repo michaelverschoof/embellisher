@@ -52,7 +52,7 @@ form[embellished] input ~ label[embellished-label] {
   position: absolute;
   text-align: left;
   top: 18px;
-  transition-property: top, font-size, background-color;
+  transition-property: top, font-size, background-color, color;
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
@@ -258,17 +258,17 @@ nav[embellished] {
   padding: 16px;
   width: 100%;
 }
-[embellished] nav .icon,
-nav[embellished] .icon {
+[embellished] nav [embellished-icon],
+nav[embellished] [embellished-icon] {
   flex-grow: 0;
   margin-right: 16px;
 }
-[embellished] nav .icon:hover,
-nav[embellished] .icon:hover {
+[embellished] nav [embellished-icon]:hover,
+nav[embellished] [embellished-icon]:hover {
   cursor: pointer;
 }
-[embellished] nav .icon:last-child,
-nav[embellished] .icon:last-child {
+[embellished] nav [embellished-icon]:last-child,
+nav[embellished] [embellished-icon]:last-child {
   margin-right: 0;
 }
 [embellished] nav .title,
@@ -296,4 +296,7 @@ nav[embellished] h6 {
   fill: #ffffff;
   height: 24px;
   width: 24px;
+}
+[embellished-icon="settings"] svg use {
+  transform: scale(1.2);
 }

@@ -38,6 +38,7 @@ export default class EmbellishedElement {
 
   append(html = required()) {
     if (html instanceof EmbellishedElements) { for (let element of html.get()) {this.element.appendChild(element.get()); } return this; }
+    if (html instanceof Array) { for (let element of html) {this.element.appendChild(element.get()); } return this; }
 
     let element = html;
     if (html instanceof EmbellishedElement) { element = html.get(); }
