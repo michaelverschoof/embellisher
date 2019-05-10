@@ -1,0 +1,83 @@
+@import "variables.less";
+
+[embellished] dialog,
+dialog[embellished] {
+    border: 0;
+    border-radius: @border-radius;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    margin: 0 auto;
+    max-width: 560px;
+    min-width: 280px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    header {
+        border-bottom: 1px solid transparent;
+        font-size: 20px;
+        padding: 20px 24px;
+
+        h1, h2, h3, h4, h5, h6 {
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        ~ main {
+            padding-top: 0;
+        }
+    }
+
+    main {
+        color: @grey-light;
+        max-height: 30vh;
+        padding: 24px 24px 0 24px;
+
+        p {
+            padding-bottom: 12px
+        }
+
+        li {
+            line-height: 48px;
+        }
+    }
+
+    footer {
+        border-top: 1px solid transparent;
+        padding: 8px;
+        text-align: right;
+
+        &[long-actions] {
+            button {
+                display: block;
+                text-align: right;
+                width: 100%;
+            }
+        }
+    }
+
+    &[scrollable] {
+        header {
+            border-bottom-color: @grey-lightest;
+        }
+
+        main {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        footer {
+            border-top-color: @grey-lightest;
+        }
+    }
+}
+
+[embellished-dialog-container] {
+    align-items: center;
+    background-color: rgba(0, 0, 0, .7);
+    display: flex;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+}

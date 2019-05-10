@@ -32,10 +32,6 @@
         &:hover {
             cursor: pointer;
 
-            &:not(.filled):not(.floating) {
-                background-color: @button-colour-hover;
-            }
-
             &.filled, &.floating {
                 background-color: @button-filled-colour-hover;
             }
@@ -63,14 +59,14 @@
         &.floating {
             background-color: @primary-colour;
             border-radius: 50%;
+            bottom: 16px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
             color: @white;
             font-size: 16px;
             padding: 16px;
             position: absolute;
             right: 16px;
-            bottom: 16px;
-            z-index: 99;
+            z-index: 10;
 
             &.mini {
                 padding: 8px;

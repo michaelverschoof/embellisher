@@ -5,13 +5,63 @@
   padding: 0;
   font-family: 'Open Sans', Arial;
 }
-main {
+body > main {
   width: 100%;
   max-width: 600px;
   margin: 5% auto;
   border: 1px solid;
   padding: 5%;
   position: relative;
+}
+[embellished] nav,
+nav[embellished] {
+  background-color: #6d00f0;
+  color: #ffffff;
+  display: flex;
+  padding: 16px;
+  width: 100%;
+}
+[embellished] nav [embellished-icon],
+nav[embellished] [embellished-icon] {
+  flex-grow: 0;
+  margin-right: 16px;
+}
+[embellished] nav [embellished-icon]:hover,
+nav[embellished] [embellished-icon]:hover {
+  cursor: pointer;
+}
+[embellished] nav [embellished-icon]:last-child,
+nav[embellished] [embellished-icon]:last-child {
+  margin-right: 0;
+}
+[embellished] nav .title,
+nav[embellished] .title,
+[embellished] nav h1,
+nav[embellished] h1,
+[embellished] nav h2,
+nav[embellished] h2,
+[embellished] nav h3,
+nav[embellished] h3,
+[embellished] nav h4,
+nav[embellished] h4,
+[embellished] nav h5,
+nav[embellished] h5,
+[embellished] nav h6,
+nav[embellished] h6 {
+  font-weight: 100;
+  flex-grow: 1;
+  font-size: 24px;
+  line-height: 24px;
+}
+[embellished-icon] {
+  color: #ffffff;
+  display: block;
+  fill: #ffffff;
+  height: 24px;
+  width: 24px;
+}
+[embellished-icon="settings"] svg use {
+  transform: scale(1.2);
 }
 [embellished] form,
 form[embellished] {
@@ -42,7 +92,7 @@ form[embellished] input {
 }
 [embellished] form input ~ label[embellished-label],
 form[embellished] input ~ label[embellished-label] {
-  color: #666666;
+  color: #777777;
   display: block;
   font-size: 1em;
   left: 1px;
@@ -147,7 +197,7 @@ form[embellished] label {
   display: block;
   font-size: 0.75rem;
   line-height: 1.5rem;
-  color: #666666;
+  color: #777777;
 }
 [embellished] form label ::first-letter,
 form[embellished] label ::first-letter {
@@ -160,7 +210,7 @@ form[embellished] label[embellished-error-text] {
 }
 [embellished] form label[embellished-helper-text],
 form[embellished] label[embellished-helper-text] {
-  color: #999999;
+  color: #aaaaaa;
 }
 [embellished] a.button,
 [embellished] button {
@@ -185,10 +235,6 @@ form[embellished] label[embellished-helper-text] {
 [embellished] a.button:hover,
 [embellished] button:hover {
   cursor: pointer;
-}
-[embellished] a.button:hover:not(.filled):not(.floating),
-[embellished] button:hover:not(.filled):not(.floating) {
-  background-color: #e4e3e4;
 }
 [embellished] a.button:hover.filled,
 [embellished] button:hover.filled,
@@ -250,53 +296,89 @@ form[embellished] label[embellished-helper-text] {
 [embellished] button.outlined {
   border-color: #bbbcbc;
 }
-[embellished] nav,
-nav[embellished] {
-  background-color: #6d00f0;
-  color: #ffffff;
-  display: flex;
-  padding: 16px;
+[embellished] dialog,
+dialog[embellished] {
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  min-width: 280px;
+  max-width: 560px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin: 0 auto;
+}
+[embellished] dialog header,
+dialog[embellished] header {
+  padding: 20px 24px;
+  font-size: 20px;
+  border-bottom: 1px solid transparent;
+}
+[embellished] dialog header h1,
+dialog[embellished] header h1,
+[embellished] dialog header h2,
+dialog[embellished] header h2,
+[embellished] dialog header h3,
+dialog[embellished] header h3,
+[embellished] dialog header h4,
+dialog[embellished] header h4,
+[embellished] dialog header h5,
+dialog[embellished] header h5,
+[embellished] dialog header h6,
+dialog[embellished] header h6 {
+  font-size: 20px;
+  font-weight: normal;
+}
+[embellished] dialog header ~ main,
+dialog[embellished] header ~ main {
+  padding-top: 0;
+}
+[embellished] dialog main,
+dialog[embellished] main {
+  color: #aaaaaa;
+  padding: 24px 24px 0 24px;
+  max-height: 50vh;
+}
+[embellished] dialog main p,
+dialog[embellished] main p {
+  padding-bottom: 12px;
+}
+[embellished] dialog main li,
+dialog[embellished] main li {
+  line-height: 48px;
+}
+[embellished] dialog footer,
+dialog[embellished] footer {
+  padding: 8px;
+  text-align: right;
+  border-top: 1px solid transparent;
+}
+[embellished] dialog footer[long-actions] button,
+dialog[embellished] footer[long-actions] button {
+  display: block;
+  text-align: right;
   width: 100%;
 }
-[embellished] nav [embellished-icon],
-nav[embellished] [embellished-icon] {
-  flex-grow: 0;
-  margin-right: 16px;
+[embellished] dialog[scrollable] header,
+dialog[embellished][scrollable] header {
+  border-bottom-color: #eeeeee;
 }
-[embellished] nav [embellished-icon]:hover,
-nav[embellished] [embellished-icon]:hover {
-  cursor: pointer;
+[embellished] dialog[scrollable] main,
+dialog[embellished][scrollable] main {
+  overflow-x: hidden;
+  overflow-y: auto;
 }
-[embellished] nav [embellished-icon]:last-child,
-nav[embellished] [embellished-icon]:last-child {
-  margin-right: 0;
+[embellished] dialog[scrollable] footer,
+dialog[embellished][scrollable] footer {
+  border-top-color: #eeeeee;
 }
-[embellished] nav .title,
-nav[embellished] .title,
-[embellished] nav h1,
-nav[embellished] h1,
-[embellished] nav h2,
-nav[embellished] h2,
-[embellished] nav h3,
-nav[embellished] h3,
-[embellished] nav h4,
-nav[embellished] h4,
-[embellished] nav h5,
-nav[embellished] h5,
-[embellished] nav h6,
-nav[embellished] h6 {
-  font-weight: 100;
-  flex-grow: 1;
-  font-size: 24px;
-  line-height: 24px;
-}
-[embellished-icon] {
-  color: #ffffff;
-  display: block;
-  fill: #ffffff;
-  height: 24px;
-  width: 24px;
-}
-[embellished-icon="settings"] svg use {
-  transform: scale(1.2);
+[embellished-dialog-container] {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.7);
 }

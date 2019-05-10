@@ -37,7 +37,7 @@ function addInputHasValueListener() {
         input.removeClass(ERROR_CLASS);
       }
     }
-  })
+  });
 }
 
 function addOnSubmitListener() {
