@@ -1,9 +1,11 @@
 import { emb } from './EmbellishedElements.js';
 import { FormEmbellisher } from './embellishers/FormEmbellisher.js';
 import { IconEmbellisher } from './embellishers/IconEmbellisher.js';
+import { DialogEmbellisher } from './embellishers/DialogEmbellisher.js';
 
 FormEmbellisher();
 IconEmbellisher();
+DialogEmbellisher();
 
 window.Embellisher = (function() {
   'use strict';

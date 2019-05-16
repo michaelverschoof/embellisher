@@ -13,45 +13,27 @@
     <link rel="stylesheet" type="text/css" href="css/embellisher.css" />
 </head>
 <body>
-    <div embellished-dialog-container>
-        <dialog embellished scrollable open>
-            <header>
-                <h3>Some dialog title</h3>
-            </header>
-            <main>
-                <ul>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                    <li>Some text</li>
-                </ul>
-            </main>
-            <footer>
-                <button>Action 1</button>
-                <button>Action 2</button>
-            </footer>
-        </dialog>
-    </div>
+    <dialog embellished embellished-dialog="myDialog">
+        <header>
+            <h3>Some dialog title</h3>
+        </header>
+        <main>
+            <ul>
+                <li>Some text</li><li>Some text</li><li>Some text</li>
+                <li>Some text</li><li>Some text</li><li>Some text</li>
+                <li>Some text</li><li>Some text</li><li>Some text</li>
+                <li>Some text</li><li>Some text</li><li>Some text</li>
+                <li>Some text</li><li>Some text</li><li>Some text</li>
+                <li>Some text</li><li>Some text</li><li>Some text</li>
+                <li>Some text</li><li>Some text</li><li>Some text</li>
+                <li>Some text</li><li>Some text</li><li>Some text</li>
+            </ul>
+        </main>
+        <footer>
+            <button embellished-dialog-close>Cancel</button>
+            <button>Confirm</button>
+        </footer>
+    </dialog>
 
     <header embellished>
         <nav>
@@ -102,7 +84,7 @@
                 </button>
             </fieldset>
 
-            <button class="floating" onclick="embellishedModal()">
+            <button class="floating" embellished-dialog-open="myDialog">
                 <label embellished-icon="add"></label>
             </button>
         </form>

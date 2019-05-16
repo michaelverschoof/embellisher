@@ -1,5 +1,18 @@
 @import "variables.less";
 
+[embellished-dialog-container] {
+    align-items: center;
+    background-color: rgba(0, 0, 0, .7);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+}
+
+[embellished-dialog],
 [embellished] dialog,
 dialog[embellished] {
     border: 0;
@@ -54,7 +67,7 @@ dialog[embellished] {
         }
     }
 
-    &[scrollable] {
+    &[embellished-dialog-scrollable="true"] {
         header {
             border-bottom-color: @grey-lightest;
         }
@@ -70,14 +83,4 @@ dialog[embellished] {
     }
 }
 
-[embellished-dialog-container] {
-    align-items: center;
-    background-color: rgba(0, 0, 0, .7);
-    display: flex;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 20;
-}
+

@@ -16,6 +16,7 @@ export function emb(selector = required()) {
   if (selector.startsWith('<')) {
     return new EmbellishedElements(EmbellishedElementHelper.createElement(selector));
   }
+
   return new EmbellishedElements(EmbellishedElementHelper.findElements(selector));
 }
 
@@ -24,7 +25,6 @@ export default class EmbellishedElements {
   elements = [];
 
   constructor(elements = required()) {
-    if (elements === null) { return null; }
     if (elements instanceof EmbellishedElements) { return elements; }
     if (elements instanceof EmbellishedElement) { this.elements.push(elements); return this; }
     if (elements instanceof HTMLElement) { this.elements.push(new EmbellishedElement(elements)); return this; }
@@ -216,8 +216,8 @@ export default class EmbellishedElements {
     return this;
   }
 
-  show() {
-    for (let element of this.elements) { element.show(); }
+  show(display) {
+    for (let element of this.elements) { element.show(display); }
     return this;
   }
 
@@ -234,6 +234,11 @@ export default class EmbellishedElements {
     return this;
   }
 
+  removeAttr(name = required()) {
+    for (let element of this.elements) { element.removeAttr(name); }
+    return this;
+  }
+
   hasAttr(name = required()) {
     let filtered = [];
     for (let element of this.elements) { element.hasAttr(name) && filtered.push(element); }
@@ -242,7 +247,6 @@ export default class EmbellishedElements {
 
   val(value) {
     if (value === undefined) { return this.first().val(); }
-
     for (let element of this.elements) { element.val(value); }
     return this;
   }
@@ -257,6 +261,22 @@ export default class EmbellishedElements {
     let filtered = [];
     for (let element of this.elements) { (element.val() === null || element.val() !== '') && filtered.push(element); }
     return EmbellishedElementHelper.embellishElements(filtered);
+  }
+
+  type() {
+    return this.first().type();
+  }
+
+  overflows() {
+    return this.first().overflowsY() || this.first().overflowsX();
+  }
+
+  overflowsX() {
+    return this.first().overflowsX();
+  }
+
+  overflowsY() {
+    return this.first().overflowsY();
   }
 
   /*

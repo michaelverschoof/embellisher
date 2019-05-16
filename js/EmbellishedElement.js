@@ -200,8 +200,8 @@ export default class EmbellishedElement {
     return this;
   }
 
-  show() {
-    if (this.element.offsetParent === null) { this.element.style.display = ''; }
+  show(display) {
+    if (this.element.offsetParent === null || this.element.style.display === 'none') { this.element.style.display = display ? display : ''; }
     return this;
   }
 
@@ -214,7 +214,7 @@ export default class EmbellishedElement {
   // }
 
   hide() {
-    if (this.element.offsetParent !== null) { this.element.style.display = 'none'; }
+    if (this.element.offsetParent !== null || this.element.style.display !== 'none') { this.element.style.display = 'none'; }
     return this;
   }
 
@@ -222,7 +222,7 @@ export default class EmbellishedElement {
   //   let style = this.element.style;
   //   style.opacity = 1;
   //
-  //   (function fade() { (style.opacity -= .1) < .1 ? style.display = 'none' : setTimeout(fade, speed); })();
+  //   (function fade() { (style.opacity -= .1) < 0 ? style.display = 'none' : setTimeout(fade, speed); })();
   // }
 
   /*
@@ -237,6 +237,10 @@ export default class EmbellishedElement {
     return this;
   }
 
+  removeAttr(name = required) {
+    this.element.removeAttribute(name);
+  }
+
   hasAttr(name = required()) {
     return (this.element.getAttribute(name) !== null);
   }
@@ -247,4 +251,21 @@ export default class EmbellishedElement {
     this.element.value = value;
     return this;
   }
+
+  type() {
+    return this.element.tagName.toLowerCase();
+  }
+
+  overflows() {
+    return this.overflowsY() || this.overflowsX();
+  }
+
+  overflowsX() {
+    return this.element.scrollWidth > this.element.clientWidth;
+  }
+
+  overflowsY() {
+    return this.element.scrollHeight > this.element.clientHeight;
+  }
+
 }

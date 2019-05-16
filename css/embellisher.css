@@ -53,8 +53,9 @@ nav[embellished] h6 {
   font-weight: 100;
   line-height: 24px;
 }
-[embellished] a.button,
-[embellished] button {
+[embellished] button,
+button[embellished],
+a[embellished-button] {
   background: none;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -73,37 +74,46 @@ nav[embellished] h6 {
   vertical-align: middle;
   white-space: nowrap;
 }
-[embellished] a.button:hover,
-[embellished] button:hover {
+[embellished] button:hover,
+button[embellished]:hover,
+a[embellished-button]:hover {
   cursor: pointer;
 }
-[embellished] a.button:hover.filled,
 [embellished] button:hover.filled,
-[embellished] a.button:hover.floating,
-[embellished] button:hover.floating {
+button[embellished]:hover.filled,
+a[embellished-button]:hover.filled,
+[embellished] button:hover.floating,
+button[embellished]:hover.floating,
+a[embellished-button]:hover.floating {
   background-color: #7816f0;
 }
-[embellished] a.button:hover > label,
-[embellished] button:hover > label {
+[embellished] button:hover > label,
+button[embellished]:hover > label,
+a[embellished-button]:hover > label {
   cursor: pointer;
 }
-[embellished] a.button:focus:not(.filled):not(.floating),
-[embellished] button:focus:not(.filled):not(.floating) {
+[embellished] button:focus:not(.filled):not(.floating),
+button[embellished]:focus:not(.filled):not(.floating),
+a[embellished-button]:focus:not(.filled):not(.floating) {
   background-color: #dad1e9;
 }
-[embellished] a.button:focus.filled,
 [embellished] button:focus.filled,
-[embellished] a.button:focus.floating,
-[embellished] button:focus.floating {
+button[embellished]:focus.filled,
+a[embellished-button]:focus.filled,
+[embellished] button:focus.floating,
+button[embellished]:focus.floating,
+a[embellished-button]:focus.floating {
   background-color: #9146f4;
 }
-[embellished] a.button.dense,
-[embellished] button.dense {
+[embellished] button.dense,
+button[embellished].dense,
+a[embellished-button].dense {
   padding-bottom: 4px;
   padding-top: 4px;
 }
-[embellished] a.button.floating,
-[embellished] button.floating {
+[embellished] button.floating,
+button[embellished].floating,
+a[embellished-button].floating {
   background-color: #6d00f0;
   border-radius: 50%;
   bottom: 16px;
@@ -115,28 +125,45 @@ nav[embellished] h6 {
   right: 16px;
   z-index: 10;
 }
-[embellished] a.button.floating.mini,
-[embellished] button.floating.mini {
+[embellished] button.floating.mini,
+button[embellished].floating.mini,
+a[embellished-button].floating.mini {
   padding: 8px;
 }
-[embellished] a.button.filled,
 [embellished] button.filled,
-[embellished] a.button.outlined,
-[embellished] button.outlined {
+button[embellished].filled,
+a[embellished-button].filled,
+[embellished] button.outlined,
+button[embellished].outlined,
+a[embellished-button].outlined {
   padding-left: 16px;
   padding-right: 16px;
 }
-[embellished] a.button.filled,
-[embellished] button.filled {
+[embellished] button.filled,
+button[embellished].filled,
+a[embellished-button].filled {
   background-color: #6d00f0;
   border-color: #6d00f0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
   color: #ffffff;
 }
-[embellished] a.button.outlined,
-[embellished] button.outlined {
+[embellished] button.outlined,
+button[embellished].outlined,
+a[embellished-button].outlined {
   border-color: #bbbcbc;
 }
+[embellished-dialog-container] {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+}
+[embellished-dialog],
 [embellished] dialog,
 dialog[embellished] {
   border: 0;
@@ -148,80 +175,85 @@ dialog[embellished] {
   overflow-x: hidden;
   overflow-y: hidden;
 }
+[embellished-dialog] header,
 [embellished] dialog header,
 dialog[embellished] header {
   border-bottom: 1px solid transparent;
   font-size: 20px;
   padding: 20px 24px;
 }
+[embellished-dialog] header h1,
 [embellished] dialog header h1,
 dialog[embellished] header h1,
+[embellished-dialog] header h2,
 [embellished] dialog header h2,
 dialog[embellished] header h2,
+[embellished-dialog] header h3,
 [embellished] dialog header h3,
 dialog[embellished] header h3,
+[embellished-dialog] header h4,
 [embellished] dialog header h4,
 dialog[embellished] header h4,
+[embellished-dialog] header h5,
 [embellished] dialog header h5,
 dialog[embellished] header h5,
+[embellished-dialog] header h6,
 [embellished] dialog header h6,
 dialog[embellished] header h6 {
   font-size: 20px;
   font-weight: normal;
 }
+[embellished-dialog] header ~ main,
 [embellished] dialog header ~ main,
 dialog[embellished] header ~ main {
   padding-top: 0;
 }
+[embellished-dialog] main,
 [embellished] dialog main,
 dialog[embellished] main {
   color: #aaaaaa;
   max-height: 30vh;
   padding: 24px 24px 0 24px;
 }
+[embellished-dialog] main p,
 [embellished] dialog main p,
 dialog[embellished] main p {
   padding-bottom: 12px;
 }
+[embellished-dialog] main li,
 [embellished] dialog main li,
 dialog[embellished] main li {
   line-height: 48px;
 }
+[embellished-dialog] footer,
 [embellished] dialog footer,
 dialog[embellished] footer {
   border-top: 1px solid transparent;
   padding: 8px;
   text-align: right;
 }
+[embellished-dialog] footer[long-actions] button,
 [embellished] dialog footer[long-actions] button,
 dialog[embellished] footer[long-actions] button {
   display: block;
   text-align: right;
   width: 100%;
 }
-[embellished] dialog[scrollable] header,
-dialog[embellished][scrollable] header {
+[embellished-dialog][embellished-dialog-scrollable="true"] header,
+[embellished] dialog[embellished-dialog-scrollable="true"] header,
+dialog[embellished][embellished-dialog-scrollable="true"] header {
   border-bottom-color: #eeeeee;
 }
-[embellished] dialog[scrollable] main,
-dialog[embellished][scrollable] main {
+[embellished-dialog][embellished-dialog-scrollable="true"] main,
+[embellished] dialog[embellished-dialog-scrollable="true"] main,
+dialog[embellished][embellished-dialog-scrollable="true"] main {
   overflow-x: hidden;
   overflow-y: auto;
 }
-[embellished] dialog[scrollable] footer,
-dialog[embellished][scrollable] footer {
+[embellished-dialog][embellished-dialog-scrollable="true"] footer,
+[embellished] dialog[embellished-dialog-scrollable="true"] footer,
+dialog[embellished][embellished-dialog-scrollable="true"] footer {
   border-top-color: #eeeeee;
-}
-[embellished-dialog-container] {
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 20;
 }
 [embellished] form,
 form[embellished] {

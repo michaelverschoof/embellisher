@@ -9,7 +9,6 @@ const ICON_SIZE = '24';
 let iconElements = emb(`[${TARGET}]`);
 
 export function IconEmbellisher() {
-
   for (let icon of iconElements.get()) {
     icon.prepend(getImageElement(
       `img/icons/${icon.attr(TARGET)}.svg#icon`

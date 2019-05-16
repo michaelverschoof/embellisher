@@ -41,7 +41,7 @@ function addInputHasValueListener() {
 }
 
 function addOnSubmitListener() {
-  formElements.on('submit', function(event) {
+  formElements.on('submit', (event) => {
     event.preventDefault();
     emb(event.target)
     .attr('submitted', '')
