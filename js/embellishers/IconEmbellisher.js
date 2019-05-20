@@ -1,17 +1,17 @@
 import { emb } from '../EmbellishedElements.js';
 import { required } from '../EmbellishedErrors.js';
 
-const TARGET = 'embellished-icon';
+const ICON = 'embellished-icon';
 const NAMESPACE_SVG = 'http://www.w3.org/2000/svg';
 const NAMESPACE_XLINK = 'http://www.w3.org/1999/xlink';
 const ICON_SIZE = '24';
 
-let iconElements = emb(`[${TARGET}]`);
+let iconElements = emb(`[${ICON}]`);
 
 export function IconEmbellisher() {
   for (let icon of iconElements.get()) {
     icon.prepend(getImageElement(
-      `img/icons/${icon.attr(TARGET)}.svg#icon`
+      `img/icons/${icon.attr(ICON)}.svg#icon`
     ));
   }
 }

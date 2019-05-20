@@ -51,8 +51,9 @@ export default class EmbellishedElements {
    * Get elements
    **************************************************
    */
-  get() {
-    return this.elements;
+  get(number) {
+    if (number === undefined) { return this.elements; }
+    return this.elements[number];
   }
 
   first() {
@@ -221,6 +222,41 @@ export default class EmbellishedElements {
     return this;
   }
 
+  fadeOut(speed) {
+    for (let element of this.elements) { element.fadeOut(speed); }
+    return this;
+  }
+
+  fadeIn(speed) {
+    for (let element of this.elements) { element.fadeIn(speed); }
+    return this;
+  }
+
+  fullScreen() {
+    for (let element of this.elements) { element.fullScreen(); }
+    return this;
+  }
+
+  width(size = required()) {
+    for (let element of this.elements) { element.width(size); }
+    return this;
+  }
+
+  height(size = required()) {
+    for (let element of this.elements) { element.height(size); }
+    return this;
+  }
+
+  maxWidth(size = required()) {
+    for (let element of this.elements) { element.maxWidth(size); }
+    return this;
+  }
+
+  maxHeight(size = required()) {
+    for (let element of this.elements) { element.maxHeight(size); }
+    return this;
+  }
+
 
   /*
    **************************************************
@@ -263,20 +299,29 @@ export default class EmbellishedElements {
     return EmbellishedElementHelper.embellishElements(filtered);
   }
 
-  type() {
-    return this.first().type();
+  /*
+   **************************************************
+   * Information providing
+   **************************************************
+   */
+  type(number) {
+    if (number === undefined) { return this.first().type(); }
+    return this.get(number).type();
   }
 
-  overflows() {
-    return this.first().overflowsY() || this.first().overflowsX();
+  overflows(number) {
+    if (number === undefined) { return this.first().overflowsY() || this.first().overflowsX(); }
+    return this.get(number).overflowsY() || this.get(number).overflowsX();
   }
 
-  overflowsX() {
-    return this.first().overflowsX();
+  overflowsX(number) {
+    if (number === undefined) { return this.first().overflowsX(); }
+    return this.get(number).overflowsX();
   }
 
-  overflowsY() {
-    return this.first().overflowsY();
+  overflowsY(number) {
+    if (number === undefined) { return this.first().overflowsY(); }
+    return this.get(number).overflowsY();
   }
 
   /*

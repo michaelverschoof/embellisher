@@ -205,25 +205,62 @@ export default class EmbellishedElement {
     return this;
   }
 
-  // fadeIn(speed = 50) {
-  //   let style = this.element.style;
-  //   style.opacity = 0;
-  //   style.display = 'block';
-  //
-  //   (function fade() { while((style.opacity += .1) <= 1) { setTimeout(fade,speed) } })();
-  // }
-
   hide() {
     if (this.element.offsetParent !== null || this.element.style.display !== 'none') { this.element.style.display = 'none'; }
     return this;
   }
 
-  // fadeOut(speed = 50) {
-  //   let style = this.element.style;
-  //   style.opacity = 1;
-  //
-  //   (function fade() { (style.opacity -= .1) < 0 ? style.display = 'none' : setTimeout(fade, speed); })();
-  // }
+  fadeIn(speed = 50) {
+    if (speed !== undefined) { this.element.style.transitionDuration = `${speed}ms`; }
+    this.element.style.opacity = '1';
+    this.attr('embellished-fade-in', '');
+    return this;
+  }
+
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  fadeOut(speed = 50) {
+    if (speed !== undefined) { this.element.style.transitionDuration = `${speed}ms`; }
+    this.element.style.opacity = '0';
+    this.sleep(speed).then( () => {
+        this.removeAttr('embellished-fade-in');
+        this.width(0);
+        this.height(0);
+      }
+    );
+    return this;
+  }
+
+  fullScreen() {
+    this.width('100%');
+    this.height('100%');
+  }
+
+  width(size = required()) {
+    if (size !== 0 && typeof size !== 'string') { throw new Error('Width cannot be parsed'); }
+    this.element.style.width = size;
+    return this;
+  }
+
+  height(size = required()) {
+    if (size !== 0 && typeof size !== 'string') { throw new Error('Height cannot be parsed'); }
+    this.element.style.height = size;
+    return this;
+  }
+
+  maxWidth(size = required()) {
+    if (size !== 0 && typeof size !== 'string') { throw new Error('Width cannot be parsed'); }
+    this.element.style.maxWidth = size;
+    return this;
+  }
+
+  maxHeight(size = required()) {
+    if (size !== 0 && typeof size !== 'string') { throw new Error('Height cannot be parsed'); }
+    this.element.style.maxHeight = size;
+    return this;
+  }
 
   /*
    **************************************************

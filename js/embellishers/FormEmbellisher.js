@@ -20,7 +20,7 @@ function addListeners() {
 }
 
 function addInputHasValueListener() {
-  formElements.children('input').on('blur', function(event) {
+  formElements.children('input').on('blur', (event) => {
     let input = emb(event.target);
 
     if (input.val()) {

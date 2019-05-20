@@ -25,7 +25,7 @@ export function DialogEmbellisher() {
     emb(event.target)
       .removeAttr('open')
       .closest(`[${CONTAINER}]`)
-        .hide();
+        .fadeOut(100);
   });
 
   openElements.on('click', (event) => {
@@ -35,7 +35,8 @@ export function DialogEmbellisher() {
     const container = emb(`[${CONTAINER}="${getDialogId(event.target)}"]`);
 
     container
-      .show('flex')
+      .fullScreen()
+      .fadeIn(100)
       .find(`[${DIALOG}]`)
         .attr('open', '')
         .attr('embellished-dialog-scrollable', (
@@ -53,7 +54,7 @@ function createContainedDialog(dialog) {
     enableScrolling();
     emb(event.target)
     .attr(CONTAINER) != null
-      ? emb(event.target).hide()
+      ? emb(event.target).fadeOut(100)
       : null
   })
   .prepend(dialog);
