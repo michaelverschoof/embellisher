@@ -3,13 +3,19 @@
 @nav-colour-hover: #7816f0;
 @nav-colour-focus: #9146f4;
 
-[embellished] nav,
-nav[embellished] {
+[embellished-app-bar] {
     background-color: @primary-colour;
     color: @white;
     display: flex;
+    height: 56px;
+    justify-content: flex-end;
     padding: 16px;
+    position: fixed;
+    transition-duration: 150ms;
+    transition-property: transform;
+    transition-timing-function: linear;
     width: 100%;
+    z-index: 90;
 
     [embellished-icon] {
         flex-grow: 0;
@@ -22,12 +28,31 @@ nav[embellished] {
         &:last-child {
             margin-right: 0;
         }
+
+        ~ .title, ~ h1, ~ h2, ~ h3, ~ h4, ~ h5, ~ h6 {
+            margin-left: 0;
+        }
     }
 
     .title, h1, h2, h3, h4, h5, h6 {
-        flex-grow: 1;
         font-size: 24px;
         font-weight: 100;
         line-height: 24px;
+        margin-left: 40px;
+        margin-right: auto;
+    }
+}
+
+[embellished-app-bar ~= "top"] {
+    top: 0;
+    left: 0;
+}
+
+[embellished-app-bar ~= "bottom"] {
+    bottom: 0;
+    left: 0;
+
+    [embellished-icon = "menu"] {
+        margin-right: auto;
     }
 }

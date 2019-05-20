@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/embellisher.css" />
 </head>
-<body>
+<body style="height: 2000px;">
     <dialog embellished embellished-dialog="myDialog">
         <header>
             <h3>Some dialog title</h3>
@@ -35,8 +35,8 @@
         </footer>
     </dialog>
 
-    <header embellished>
-        <nav>
+    <header>
+        <nav embellished-app-bar="top">
             <a embellished-icon="menu"></a>
             <h1>Page title</h1>
             <a embellished-icon="share"></a>
@@ -59,7 +59,7 @@
                 <label embellished-helper-text>Helper text</label>
             </fieldset>
             <fieldset>
-                <input class="outlined" type="text" />
+                <input class="outlined" type="text" value="bla" />
                 <label embellished-label>Some label</label>
                 <label embellished-error-text>Error text</label>
                 <label embellished-helper-text>Helper text</label>
@@ -88,7 +88,14 @@
                 <label embellished-icon="add"></label>
             </button>
         </form>
-
     </main>
+    <footer>
+        <nav embellished-app-bar="bottom">
+            <a embellished-icon="menu"></a>
+
+            <a embellished-icon="search"></a>
+            <a embellished-icon="more"></a>
+        </nav>
+    </footer>
 </body>
 </html>

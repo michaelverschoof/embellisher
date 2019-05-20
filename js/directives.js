@@ -1,10 +1,12 @@
 import { emb } from './EmbellishedElements.js';
+import { AppBarEmbellisher } from './embellishers/AppBarEmbellisher.js';
+import { DialogEmbellisher } from './embellishers/DialogEmbellisher.js';
 import { FormEmbellisher } from './embellishers/FormEmbellisher.js';
 import { IconEmbellisher } from './embellishers/IconEmbellisher.js';
-import { DialogEmbellisher } from './embellishers/DialogEmbellisher.js';
 
-FormEmbellisher();
 IconEmbellisher();
+FormEmbellisher();
+AppBarEmbellisher();
 DialogEmbellisher();
 
 window.Embellisher = (function() {
