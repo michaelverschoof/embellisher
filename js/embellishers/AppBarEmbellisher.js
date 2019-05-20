@@ -28,10 +28,14 @@ function addScrollListener() {
 
     if (currentPosition > 0 && currentPosition > previousPosition
         && top.style.transform === '' && bottom.style.transform === '') {
+      top.style.transitionTimingFunction = 'ease-in';
+      bottom.style.transitionTimingFunction = 'ease-in';
       top.style.transform = `translateY(-${topBarHeight}px)`;
       bottom.style.transform = `translateY(${bottomBarHeight}px)`;
     } else if ((currentPosition === 0 || currentPosition < previousPosition)
         && top.style.transform !== '' && bottom.style.transform !== '') {
+      top.style.transitionTimingFunction = 'ease-out';
+      bottom.style.transitionTimingFunction = 'ease-out';
       top.style.transform = '';
       bottom.style.transform = '';
     }
